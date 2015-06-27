@@ -195,6 +195,11 @@
       var isGraphDatetime = $table.data('graph-xaxis-type') == 'datetime';
       
       var rows            = $('tbody:first tr', table);
+
+      if (!!$table.data('graph-reverse')){
+        rows = $(rows.get().reverse());
+      }
+
       rows.each(function(indexRow, row) {
         if (!!$(row).data('graph-skip')) {
           return;
