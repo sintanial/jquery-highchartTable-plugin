@@ -210,7 +210,12 @@
           }
           var $td = $(td);
           if (indexTd==0) {
-            cellValue = $td.text();
+            if ($td.data('graph-x-value') !== undefined) {
+              cellValue = $td.data('graph-x-value');
+            } else {
+              cellValue = $td.text();
+            }
+
             xValues.push(cellValue);
           } else {
             var rawCellValue = $td.text();
